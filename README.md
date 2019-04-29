@@ -10,10 +10,10 @@ The test is intended to show issues occurring after long wait periods between co
 
 
 ## Prerequisites: 
-CentOS Linux release 7.6.1810 (Core) 
-Docker version 18.09.3, build 774a1f4
-[Hyperledger prerequisites](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html)
-Latest hyperledge image tags 
+* CentOS Linux release 7.6.1810 (Core) 
+* Docker version 18.09.3, build 774a1f4
+* [Hyperledger prerequisites](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html)
+* Latest hyperledge image tags 
 
 ## Installation
 ### Hyperledger
