@@ -26,7 +26,7 @@ public class ConnectionProperties {
 
    static {
 
-      IP = "gmex-dev-dlt-01";
+      IP = "localhost";
       CHANNEL = "messagebus";
       CHAINCODE = "chainc";
 
