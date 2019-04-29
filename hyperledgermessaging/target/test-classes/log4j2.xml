@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+
+   <Appenders>
+
+      <Console name="CONSOLE" target="SYSTEM_OUT">
+         <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss.SSS} | %-10.10t | %c | %m%n"/>
+      </Console>
+
+   </Appenders>
+
+   <Loggers>
+
+      <Logger name="io.grpc.netty" level="INFO"/>
+      <Logger name="io.netty" level="INFO"/>
+      <Logger name="hm.node" level="INFO"/>
+      
+      <Root level="DEBUG">
+         <AppenderRef ref="CONSOLE"/>
+      </Root>
+
+   </Loggers>
+
+</Configuration>
