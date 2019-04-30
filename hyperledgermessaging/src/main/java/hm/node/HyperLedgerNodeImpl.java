@@ -58,9 +58,9 @@ public class HyperLedgerNodeImpl implements HyperLedgerNode {
     * channel.
     */
    @Override
-   public void startWithDefaultUrl() throws Exception {
+   public void startWithDefaultUrl(String username) throws Exception {
       // use CA to enroll a client if we do not have one serialised in file system
-      client = certificateManager.initialize();
+      client = certificateManager.initialize(username);
       doConnect();
    }
 
@@ -177,7 +177,7 @@ public class HyperLedgerNodeImpl implements HyperLedgerNode {
     */
    @Override
    public void commitMessage(final MessageBean message, final String chaincodeMethod) throws Exception {
-	  LOG.info("node [{}] is sending message [{}]", name, message.toString());
+	  LOG.info("[{}] is committing message [{}]", name, message.toString());
       commit(message, chaincodeMethod);
    }
 
@@ -212,7 +212,7 @@ public class HyperLedgerNodeImpl implements HyperLedgerNode {
       }
 
       if (sentSuccessfully)
-         LOG.info("commitMessage : successfully committed message : {}", message);
+         LOG.info("[{}] successfully committed message : {}", name, message);
       else {
          LOG.warn("commitMessage : error committing message: {}", message);
          throw new TransactionException("Failed to send TransactionEvent to channel [" + ConnectionProperties.CHANNEL + "] for message id [" + message.getId() + "]");
@@ -232,7 +232,7 @@ public class HyperLedgerNodeImpl implements HyperLedgerNode {
     */
    @Override
    public boolean commitMessageResponse(final MessageBean message) throws Exception {
-	  LOG.info("node [{}] is sending message [{}]", name, message.toString());
+	  LOG.info("[{}] is committing message [{}]", name, message.toString());
       commit(message, CHAINCODE_ACK_METHOD);
       return true;
    }
@@ -259,8 +259,7 @@ public class HyperLedgerNodeImpl implements HyperLedgerNode {
    @Override
    public void commitLastBlockProcessed(final BlockReport blockReport) throws Exception {
       final byte[] object = GSON.toJson(new LastBlockProcessed(blockReport)).getBytes();
-      final MessageBean message = new MessageBean(/*guid is not required as we will persist by component certificate*/"-LBP-", MessageType.LAST_BLOCK_PROCESSED.getValue(), object);
-      message.setTimestamp(System.currentTimeMillis());
+      final MessageBean message = new MessageBean(/*guid is not required as we will persist by component certificate*/"-LBP-", MessageType.LAST_BLOCK_PROCESSED.getValue(), object, System.currentTimeMillis());
       commitMessage(message, "init_message");
    }
 

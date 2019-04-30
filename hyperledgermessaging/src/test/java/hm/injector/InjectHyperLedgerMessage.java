@@ -31,7 +31,7 @@ public class InjectHyperLedgerMessage extends HyperLedgerAbstractInjector {
    }
 
    protected MessageBean createMessageBean() {
-      final MessageBean message = MessageBean.newInstance(UUID.randomUUID().toString(), 1, GSON.toJson(randomJson).getBytes());
+      final MessageBean message = MessageBean.newInstance(UUID.randomUUID().toString(), 1, GSON.toJson(randomJson).getBytes(), System.currentTimeMillis());
       return message;
    }
 

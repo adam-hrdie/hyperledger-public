@@ -10,7 +10,7 @@ import hm.api.AppUserBean;
 
 public interface CertificateManager {
 
-   public HFClient initialize() throws Exception;
+   public HFClient initialize(String username) throws Exception;
 
    public HFClient getHfClient()
          throws IllegalAccessException, InstantiationException, ClassNotFoundException, CryptoException, InvalidArgumentException, NoSuchMethodException, InvocationTargetException;

@@ -59,7 +59,7 @@ public class MessageProcessor implements Runnable {
 	}
 
 	private void processAMessage(final MessageBean mb) {
-		LOG.info("node [{}] received a message: [{}]", name, mb.toString());
+		LOG.info("[{}] received a message: [{}]", name, mb.toString());
 	}
 
 	private void publishLastBlockProcessed(final BlockReport blockReport) {
@@ -71,7 +71,7 @@ public class MessageProcessor implements Runnable {
 	}
 
 	private void sendAResponse() throws Exception {
-		response = new MessageBean(UUID.randomUUID().toString(), MessageType.MESSAGE.getValue(), new byte[] { 'a' });
+		response = new MessageBean(UUID.randomUUID().toString(), MessageType.MESSAGE.getValue(), new byte[] { 'a' }, System.currentTimeMillis());
 		node.commitMessageResponse(response);
 	}
 }

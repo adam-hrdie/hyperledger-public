@@ -18,7 +18,7 @@ public abstract class HyperLedgerAbstractInjector {
       LOG.debug("init start");
 
       hyperLedgerNode = new HyperLedgerNodeImpl("Injector");
-      hyperLedgerNode.startWithDefaultUrl();
+      hyperLedgerNode.startWithDefaultUrl("Injector");
 
       LOG.debug("init end");
       return hyperLedgerNode;

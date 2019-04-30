@@ -21,15 +21,16 @@ public class MessageBean implements Serializable {
    @SerializedName(value = "value", alternate = { "Value" })
    private byte[] value;
 
-   public MessageBean(final String uuid, final int type, final byte[] value) {
+   public MessageBean(final String uuid, final int type, final byte[] value, final long timestamp) {
       setId(uuid);
       setType(type);
-      setTimestamp(1); // dummy until we ch  ange chaincode to accept int64
+      setTimestamp(1);
       setValue(value);
+      setTimestamp(timestamp);
    }
 
-   public static MessageBean newInstance(final String uuid, final int msgType, final byte[] bytes) {
-      return new MessageBean(uuid, msgType, bytes);
+   public static MessageBean newInstance(final String uuid, final int msgType, final byte[] bytes, final long timestamp) {
+      return new MessageBean(uuid, msgType, bytes, timestamp);
    }
 
    public String getId() {

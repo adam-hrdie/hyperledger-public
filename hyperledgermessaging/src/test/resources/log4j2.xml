@@ -15,6 +15,7 @@
       <Logger name="io.grpc.netty" level="INFO"/>
       <Logger name="io.netty" level="INFO"/>
       <Logger name="hm.node" level="INFO"/>
+      <Logger name="org.hyperledger" level="TRACE"/>
       
       <Root level="DEBUG">
          <AppenderRef ref="CONSOLE"/>

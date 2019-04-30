@@ -12,7 +12,7 @@ import hm.beans.*;
 
 public interface HyperLedgerNode {
 
-   void startWithDefaultUrl() throws Exception;
+   void startWithDefaultUrl(String username) throws Exception;
 
    boolean commitMessageResponse(MessageBean message) throws Exception;
 

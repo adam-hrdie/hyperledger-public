@@ -11,7 +11,6 @@ import org.hyperledger.fabric_ca.sdk.exception.RegistrationException;
 import org.slf4j.*;
 
 import hm.api.AppUserBean;
-import hm.constants.HyperledgerConstants;
 import hm.node.ConnectionProperties;
 
 public class CertificateManagerImpl implements CertificateManager {
@@ -33,15 +32,15 @@ public class CertificateManagerImpl implements CertificateManager {
    }
 
    @Override
-   public HFClient initialize() throws Exception {
+   public HFClient initialize(String username) throws Exception {
       LOG.info("Attempting connect to {}", ConnectionProperties.HL_CA);
 
       HFClient client = null;
 
-      user = serializationTools.tryDeserializeUser(HyperledgerConstants.HF_USERNAME);
+      user = serializationTools.tryDeserializeUser(username);
       if (user == null) {
          final AppUserBean admin = getAdmin(caClient);
-         user = getUser(caClient, admin, HyperledgerConstants.HF_USERNAME);
+         user = getUser(caClient, admin, username);
       }
 
       client = getHfClient();

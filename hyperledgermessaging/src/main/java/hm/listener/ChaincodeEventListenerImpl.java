@@ -47,12 +47,12 @@ public class ChaincodeEventListenerImpl implements ChaincodeEventListener {
       try {
 
          if (queue != null) {
-            LOG.info("adding to process queue: block #[{}] event {}", event.blockReport().number(), event.messageBean());
+            LOG.trace("adding to process queue: block #[{}] event {}", event.blockReport().number(), event.messageBean());
             queue.put(event);
          }
 
          else if (orderingMap != null) {
-            LOG.info("read block [{}] into ordered map for processing ", event.blockReport().number());
+            LOG.debug("read block [{}] into ordered map for processing ", event.blockReport().number());
 
             if (orderingMap.get(event.blockReport().number()) != null)
                list.addAll(orderingMap.get(event.blockReport().number()));
