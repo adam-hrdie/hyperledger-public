@@ -76,7 +76,7 @@ public class E2eIT {
 		commitRandomUpsteamMessage(node1);
 		
 
-		long timeToWait = 1000 * 60 * 16; // 16 minutes
+		long timeToWait = (1000 * 60 * 15) + 1000; // 15 minutes and 1 second
 		busyWait(timeToWait);
 		
 		//try to commit another message
