@@ -27,6 +27,11 @@ The test is intended to show issues occurring after long wait periods between co
 1. Pull the hyperledgermessaging project into your IDE. 
 2. Ensure project is set to run on at least JDK 1.8.0_111
 3. Run the [Junit Test](https://github.com/adam-hrdie/hyperledger-public/blob/master/hyperledgermessaging/src/test/java/hm/injector/e2e/E2eIT.java) 
+4. Ensure that the logs show two clients successfully connecting to the hyperledger network & chaincode event listener
+5. Run the [MsgInjector](https://github.com/adam-hrdie/hyperledger-public/blob/master/hyperledgermessaging/src/test/java/hm/injector/e2e/MsgInjector.java) to inject a message and show the round trip between the nodes. 
+6. Wait for 15 minutes (or run the injector intermittently for this amount of time - either is fine). 
+7. See that after this time, there is no longer a throughput of messages into the nodes. 
+8. Check hyperledger peer logs to ensure messages are being committed but not sent to listening nodes.
 
 
 
