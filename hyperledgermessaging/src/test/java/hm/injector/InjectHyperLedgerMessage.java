@@ -16,20 +16,6 @@ public class InjectHyperLedgerMessage extends HyperLedgerAbstractInjector {
 
    }
 
-   public void inject(final String chaincodeMethodName) {
-      try {
-         LOG.info("Starting");
-
-         init();
-         inject(createMessageBean(), chaincodeMethodName);
-
-         LOG.info("Finished");
-      }
-      catch (final Exception e) {
-         LOG.error("Error running", e);
-      }
-   }
-
    public void injectFromNode(final HyperLedgerNode node, final String chaincodeMethodName) {
       try {
          LOG.info("Starting");
@@ -44,12 +30,12 @@ public class InjectHyperLedgerMessage extends HyperLedgerAbstractInjector {
       }
    }
 
-   private MessageBean createMessageBean() {
+   protected MessageBean createMessageBean() {
       final MessageBean message = MessageBean.newInstance(UUID.randomUUID().toString(), 1, GSON.toJson(randomJson).getBytes());
       return message;
    }
 
-   private void inject(final MessageBean bean, final String chaincodeMethod) {
+   public void inject(final MessageBean bean, final String chaincodeMethod) {
       LOG.debug("Sending {}", bean);
 
       try {

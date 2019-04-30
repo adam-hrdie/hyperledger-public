@@ -55,11 +55,9 @@ public class E2eIT {
 		 * "successfully committed" by Node1 as a DeliverResponse is never returned by
 		 * the Ordering Service Node.
 		 */
-		commitRandomUpsteamMessage(node1);
 		
-		Thread.sleep(1000 * 60 * 20); //wait 20 minutes and retry
-
-		commitRandomUpsteamMessage(node1);
+		while(true)
+			;
 	}
 
 	private void commitRandomUpsteamMessage(HyperLedgerNode node) throws Exception {
