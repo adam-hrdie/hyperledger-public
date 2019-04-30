@@ -3,7 +3,7 @@
 ## Overview
 This repository allows a user to:
 
-1. create a sample hyperledger network using hyperledgernetwork project.
+1. create a sample Hyperledger network using hyperledgernetwork project.
 2. run a two-node end to end test against the network.
 
 The test is intended to show issues occurring after long wait periods between commits on a multi-orderer (kafka-based) hyperledger. 
@@ -19,7 +19,7 @@ The test is intended to show issues occurring after long wait periods between co
 ### Hyperledger
 
 1. Pull the hyperledgernetwork project to the desired install location. Set all .sh files and everything in /bin to executable.
-2. Ensure no hyperledger containers or networks are currently running on the machine - docker network prune / docker volume prune.
+2. Ensure no Hyperledger containers or networks are currently running on the machine - docker network prune / docker volume prune.
 3. Run the script.sh file. Usually I manually run line by line to ensure each docker service has time to initialise and start (once it is shown as running in docker ps, continue) 
 
 ### Java
